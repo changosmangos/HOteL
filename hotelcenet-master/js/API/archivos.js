@@ -1,5 +1,5 @@
 //archivos
-function subirFoto(foto){
+function subirFoto(foto,nom){
 	var options = new FileUploadOptions();
 	options.fileKey="archivo";
 	options.fileName="Carlos alberto";
@@ -14,9 +14,12 @@ function subirFoto(foto){
 				case 2:
 					navigator.notification.beep(3);
 					break;
+				case 3:  
+				  navigator.notification.alert (infoDisp() ["nombre"], null, "info","Si");		 
 			}
+			regitro(nom); 
 			window.location.href="#page";
-		}, "Registro", "Vibrar,Sonar,Cancelar");
+		}, "Registro", "Vibrar,Sonar,Info,Cancelar");
 	}, function(err){
 		navigator.notification.alert("Error al Subir el archivo: "+err.code, null, "Registro", "Aceptar");
 	}, options);
